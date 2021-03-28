@@ -8,8 +8,8 @@
 #include <sstream>
 #include <streambuf>
 #include <string>
-
-
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
 std::string loadShaderSrc(const char* filename);//load the shader source 
@@ -201,12 +201,12 @@ int main() {
 		//vertex to draw)
 
 		//glDrawArrays(GL_TRIANGLES, 0, 6);
-		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		//glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
 
 		//second triangle 
-		glUseProgram(shaderProgram[1]);
-		glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void*)(3*sizeof(unsigned int)));
+		//glUseProgram(shaderProgram[1]);
+		//glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, (void*)(3*sizeof(unsigned int)));
 
 		//send the new frame to window
 		glfwSwapBuffers(window);

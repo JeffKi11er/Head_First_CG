@@ -1,2 +1,3 @@
 ﻿  main.cpp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   Head_First_CG.vcxproj -> D:\Computer Graphic\Head_First_CG\x64\Debug\Head_First_CG.exe

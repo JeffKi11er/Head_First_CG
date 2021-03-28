@@ -8,6 +8,7 @@
 #include <sstream>
 #include <streambuf>
 #include <string>
+#include <glm/gtc/type_ptr.hpp>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -184,6 +185,13 @@ int main() {
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
 
+	//transform
+	glm::mat4 trans = glm::mat4(1.0f);// initially identity object
+	//pass into shader
+	trans = glm::rotate(trans, glm::radians(45.0f), glm::vec3(0.0f, 0.0f, 1.0f));//rotate 45 degrees along x axis or z axis 
+	glUseProgram(shaderProgram[0]);//active
+	//set variable
+	glUniformMatrix4fv(glGetUniformLocation(shaderProgram[0], "transform"), 1, GL_FALSE, glm::value_ptr(trans));//count = 1, transpose gl_false
 	while (!glfwWindowShouldClose(window)) {
 		//process input 
 		processInput(window);
